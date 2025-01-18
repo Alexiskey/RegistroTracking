@@ -49,60 +49,9 @@
 </head>
 <body>
     <header>
-        <h1>Informe Profesional de Alexis</h1>
+        <h1>hola este es mi primer html</h1>
     </header>
 
-    <section>
-        <h2>Biografía</h2>
-        <p>Bienvenido a mi página personal. Aquí puedes encontrar información sobre mi trayectoria profesional y habilidades.</p>
-    </section>
 
-    <section>
-        <h2>Habilidades</h2>
-        <table>
-            <tr>
-                <th>Habilidad</th>
-                <th>Nivel de Competencia</th>
-            </tr>
-            <tr>
-                <td>Programación en PHP</td>
-                <td>Avanzado</td>
-            </tr>
-            <tr>
-                <td>Desarrollo Web</td>
-                <td>Intermedio</td>
-            </tr>
-            <tr>
-                <td>SQL y Bases de Datos</td>
-                <td>Avanzado</td>
-            </tr>
-            <tr>
-                <td>Python</td>
-                <td>Intermedio</td>
-            </tr>
-        </table>
-    </section>
-
-    <section>
-        <h2>Proyectos Destacados</h2>
-        <table>
-            <tr>
-                <th>Proyecto</th>
-                <th>Descripción</th>
-            </tr>
-            <tr>
-                <td>Sistema de Asistencia NFC</td>
-                <td>Implementación de un sistema de control de asistencia usando tecnología NFC.</td>
-            </tr>
-            <tr>
-                <td>SCMSentinel</td>
-                <td>Programa para buscar y contar coincidencias de palabras clave en documentos.</td>
-            </tr>
-        </table>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Alexis. Todos los derechos reservados.</p>
-    </footer>
 </body>
 </html>

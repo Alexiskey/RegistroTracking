@@ -23,15 +23,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $row_usuario = mysqli_fetch_assoc($result_usuario);
             $row_area = mysqli_fetch_assoc($result_Area);
 
-            $permisoRoles = $row_area['permisoRoles']; 
+            $permisosRoles = $row_area['permisosRoles']; 
 
             // Enviar arduino
             echo "Tag RFID: " . $row_usuario['TagRFID'] . "\n";
             echo "ID Usuario: " . $row_usuario['idUsuario'] . "\n";
             echo "Rol Usuario: " . $row_usuario['nombreRol'] . "\n";
-            echo "Permisos del Área: " . $permisoRoles . "\n";
+            echo "Permisos del Área: " . $permisosRoles . "\n";
 
-            if ($permisoRoles === 'Libre' || strpos($permisoRoles, $row_usuario['nombreRol']) !== false) {
+            if ($permisosRoles === 'Libre' || strpos($permisosRoles, $row_usuario['nombreRol']) !== false) {
                 // Insertar en la base de datos
                 $sql = "INSERT INTO accesos_logs (idAccesoLog, idUsuario, idArea, tipoAcesso)
                 VALUES (NULL, (SELECT idUsuario FROM usuario WHERE TagRFID = '$uid'), '$Area', 'Entrada');";

@@ -11,7 +11,7 @@
 
 MFRC522 rfid(SS_PIN, RST_PIN);
 
-const char* serverUrl = "http://192.168.1.4/RegistroTracking/includes/ingresorfid.php";
+const char* serverUrl = "http://192.168.1.3/RegistroTracking/includes/ingresorfid.php";
 
 // Placa NodeMCU-32S
 
@@ -33,9 +33,10 @@ void setup() {
   // Conexión WiFi
   WiFi.begin(ssid, password);
   int attempts = 0;
+  Serial.println("Intento Conexion WIFI...");
   while (WiFi.status() != WL_CONNECTED && attempts < 10) { // Esperar un máximo de 10 intentos
     delay(1000); // Esperar 1 segundo entre intentos
-    Serial.println("Intento ");
+    Serial.print("Intento ");
     Serial.println(attempts + 1);
     attempts++;
   }
@@ -50,7 +51,7 @@ void setup() {
 }
 
 void loop() {
-  delay(100);
+  delay(200);
   digitalWrite(LED_VERDE, 0); 
   digitalWrite(LED_ROJO, 0);
   // Verificar si hay una nueva tarjeta presente
@@ -87,15 +88,19 @@ void loop() {
         ultimaLinea = payload.substring(lastIndex + 1); // Extraer la última línea
         Serial.println("Última línea: " + ultimaLinea); 
         if (ultimaLinea == "Acceso permitido al área") {
+            Serial.println(ultimaLinea);
             digitalWrite(LED_VERDE, 1); 
-            digitalWrite(LED_ROJO, 0);  
+            delay(500);
         } else {
             Serial.println(ultimaLinea);
-            digitalWrite(LED_VERDE, 0); 
-            digitalWrite(LED_ROJO, 1);  
+            digitalWrite(LED_ROJO, 1); 
+            delay(500); 
         }
     } else {
             Serial.println("No se encontraron resultados");
+            Serial.println(ultimaLinea);
+            digitalWrite(LED_ROJO, 1); 
+            delay(500); 
         }
 
   }
